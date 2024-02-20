@@ -2,4 +2,4 @@
 - Mỗi lượt đoán, bạn chỉ đoán một chữ cái.
     + Nếu đúng sẽ hiện vị trí của chữ cái đó.
     + Nếu sai bạn sẽ mất đi một mạng chơi (mỗi mỗi từ chỉ có số mạng nhất định)
--Trò chhowi sẽ kết thúc khi bạn đoán đúng hoặc số mạng của bạn không còn. 
+-Trò chơi sẽ kết thúc khi bạn đoán đúng hoặc số mạng của bạn không còn. 
