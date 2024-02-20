@@ -4,6 +4,7 @@
 
 int main()
 {
-    newGame();
+    print_text_file("logo.txt");
+    // newGame();
     return 0;
 }
