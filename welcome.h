@@ -13,3 +13,10 @@ void print_text_file(string path)
         cout << line << "\n";
     }
 }
+
+void mainMenu()
+{
+    cout << "\n\t\t\t\t\t\t\t\tSELECT MODE\n\n";
+    string modes[5] =  {"New Game", "Scoreboard", "Help", "About", "Exit"};
+    for (int i = 0; i < 5; i++) cout << "\t\t\t\t\t\t\t\t[" + to_string(i+1) + "] " + modes[i] << endl;
+}
