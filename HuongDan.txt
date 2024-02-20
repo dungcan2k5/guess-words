@@ -1,5 +1,5 @@
 - Bạn cần đoán từ Tiếng Anh từ bộ từ ngẫu nhiên.
 - Mỗi lượt đoán, bạn chỉ đoán một chữ cái.
     + Nếu đúng sẽ hiện vị trí của chữ cái đó.
-    + Nếu sai bạn sẽ mất đi một mạng chơi (mỗi mỗi từ chỉ có số mạng nhất định)
+    + Nếu sai bạn sẽ mất đi một mạng chơi (mỗi một từ chỉ có số mạng nhất định)
 -Trò chơi sẽ kết thúc khi bạn đoán đúng hoặc số mạng của bạn không còn. 
