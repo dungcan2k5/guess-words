@@ -29,7 +29,7 @@ void play(string data, int &tim){
         dap_an[i] = '_';
     }
     
-    cout <<"\tNumber of words : " << so_luong << "\n"; // In ra số lượng chữ của từ
+    cout <<"\t\t\t\t\t\t\t\tNumber of words : " << so_luong << "\n\n"; // In ra số lượng chữ của từ
     in_tu(dap_an, length);
     for(int i = 0; i < so_luong; i++) tu[i] = data[i];
 
@@ -84,6 +84,7 @@ void newGame(){
     for(int i = 0; i < n ; i++){
         cout << "\tInsert name of player " << i+1 << ": ";
         string name; cin >> name;
+        cout<<"\n";
         player[i] = name;
         player_mang[i] = 6;
     }
