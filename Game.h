@@ -10,6 +10,7 @@ using namespace std;
  }
 */
 void in_tu(char chr[], int so_luong){
+    cout<<"\t\t\t\t\t\t\t\t";
     for (int i = 0; i < so_luong; i++)
     {
         cout << chr[i] << " ";
@@ -28,7 +29,7 @@ void play(string data, int &tim){
         dap_an[i] = '_';
     }
     
-    cout <<"Number of words : " << so_luong << "\n"; // In ra số lượng chữ của từ
+    cout <<"\tNumber of words : " << so_luong << "\n"; // In ra số lượng chữ của từ
     in_tu(dap_an, length);
     for(int i = 0; i < so_luong; i++) tu[i] = data[i];
 
@@ -81,7 +82,7 @@ void newGame(){
     string player[n];
     int player_mang[n];
     for(int i = 0; i < n ; i++){
-        cout << "Insert name of player " << i+1 << ": ";
+        cout << "\tInsert name of player " << i+1 << ": ";
         string name; cin >> name;
         player[i] = name;
         player_mang[i] = 6;
