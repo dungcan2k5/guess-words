@@ -34,7 +34,7 @@ void chooseMode()
         system("ThongTin.txt");
         break;
     case '5':
-        cout << "\n\n\tThanks! See you!!!";
+        cout << "\n\n\t\t\t\t\t\t\t\tSEE YOU!!!";
         Sleep(1500);
         system("cls");
         exit(0);
@@ -48,7 +48,7 @@ int main()
 {
     configWindow();
     print_text_file("Logo.txt");
-    // loadGame();
+    loadGame();
     mainMenu();
     while (true) chooseMode();
     return 0;
