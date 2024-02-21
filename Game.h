@@ -20,14 +20,14 @@ void in_tu(char chr[], int so_luong)
     cout << endl;
 }
 
-void play(string data, string player[], int player_mang[], int &n)
+void play(string data, string player[], int player_mang[], int n)
 {
     int so_luong = data.size();
     int length = so_luong;
     char tu[so_luong];
     char dap_an[so_luong];
     // int number_player = player.lenght();
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < so_luong; i++)
     {
         dap_an[i] = '_';
     }
@@ -51,16 +51,14 @@ void play(string data, string player[], int player_mang[], int &n)
             cin >> chu;
             chu = toupper(chu);
 
-            for (int i = 0; i < length; i++)
-            {
+            for (int i = 0; i < length; i++){
                 if (chu == data[i])
                 {
                     dap_an[i] = chu;
                 }
             }
 
-            if (cnt[chu - 65] != 0)
-            {
+            if (cnt[chu - 65] != 0){
                 cout << "Have " << cnt[chu - 65] << " letter " << chu << "\n"; // in ra số lần xuất hiện của từ của ki tự nhập vào
                 in_tu(dap_an, length);
                 cout << player[i] << " have " << player_mang[i] << " heart\n"; // in ra số mạng còn lại
@@ -76,8 +74,7 @@ void play(string data, string player[], int player_mang[], int &n)
     }
 }
 
-void inputQuestion(string file, string player[], int player_mang[], int &n)
-{
+void inputQuestion(string file, string player[], int player_mang[], int n){
     fstream fin(file);
     string data;
     while (!fin.eof())
@@ -88,8 +85,7 @@ void inputQuestion(string file, string player[], int player_mang[], int &n)
     }
 }
 
-void newGame()
-{
+void newGame(){
     // inputQuestion("BoCauHoi.txt");
     cout << "\n\tEnter the number of player: ";
     int n;
