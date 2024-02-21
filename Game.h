@@ -3,8 +3,8 @@
 #include <string>
 #include <random>
 #include <vector>
-#include<map>
-#include<time.h>
+#include <map>
+#include <time.h>
 using namespace std;
 void random(int mang[])
 {
@@ -18,7 +18,7 @@ void random(int mang[])
         do
         {
             r = minN + rand() % (maxN + 1 - minN);
-            mang[i] = r; 
+            mang[i] = r;
         } while (vis.find(r) != vis.end());
         vis[r] = true;
     }
@@ -32,7 +32,15 @@ void in_tu(char chr[], int so_luong)
     }
     cout << endl;
 }
-
+void check_player_mang(int &i, int player_mang[], int so_luong)
+{
+    if (player_mang[i] == 0)
+    {
+        i++;
+    }
+    if (i > so_luong - 1)
+        i == 0;
+}
 void play(string data, string player[], int player_mang[], int n)
 {
     int so_luong = data.size();
@@ -55,10 +63,12 @@ void play(string data, string player[], int player_mang[], int n)
         cnt[data[i] - 65]++; // Đếm số lượng các chữ cái xuất hiện của từ
     while (so_luong)
     {
-        for (int i = 0; i < so_luong; i++)
+        for (int i = 0; i < so_luong + 1; i++)
         {
             if (i >= so_luong - 1)
                 i = 0;
+            // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
+            // if (player_mang[i] == 0) i++;
             cout << "Please " << player[i] << " choose letter\n";
             char chu; // Từ dự đoán của người chơi
             cin >> chu;
@@ -94,17 +104,19 @@ void inputQuestion(string file, string player[], int player_mang[], int n)
     fstream fin(file);
     string data;
     vector<string> word(15);
-    //int i = -1;
-    int mang[15] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+    // int i = -1;
+    int mang[15] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     random(mang);
     while (fin.is_open())
     {
-        for (int i = 0; i < 15; i++){
+        for (int i = 0; i < 15; i++)
+        {
             getline(fin, word[i]);
         }
         fin.close();
     }
-    for(int i = 0; i < 15; i++){
+    for (int i = 0; i < 15; i++)
+    {
         data = word[mang[i]];
         play(data, player, player_mang, n);
     }
