@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <windows.h>
 
 using namespace std;
 
@@ -12,6 +13,21 @@ void print_text_file(string path)
         getline(file, line);
         cout << line << "\n";
     }
+}
+
+void loadGame()
+{
+    char loadItems[] = {'|', '/', '-', '\\', '|', '/', '-', '\\'};
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            cout << loadItems[i] << "\033[D";
+            Sleep(50);
+        }
+        
+    }
+    
 }
 
 void mainMenu()
