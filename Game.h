@@ -1,14 +1,28 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <random>
+#include <vector>
+#include<map>
+#include<time.h>
 using namespace std;
-
-/* void in_tu(char tu[]){
-     for(int i = 0; i < tu.size(); i++){
-        cout << tu[i] << "_";
+void random(int mang[])
+{
+    srand((int)time(0));
+    int r, minN = 0, maxN = 14;
+    int cnt = 15;
+    map<int, bool> vis;
+    for (int i = 0; i < cnt; ++i)
+    {
+        // Random cho toi khi r chua co trong map vis
+        do
+        {
+            r = minN + rand() % (maxN + 1 - minN);
+            mang[i] = r; 
+        } while (vis.find(r) != vis.end());
+        vis[r] = true;
     }
- }
-*/
+}
 void in_tu(char chr[], int so_luong)
 {
     cout << "\t\t\t\t\t\t\t\t";
@@ -16,7 +30,6 @@ void in_tu(char chr[], int so_luong)
     {
         cout << chr[i] << " ";
     }
-
     cout << endl;
 }
 
@@ -44,21 +57,23 @@ void play(string data, string player[], int player_mang[], int n)
     {
         for (int i = 0; i < so_luong; i++)
         {
-            if (i >= so_luong-1)
+            if (i >= so_luong - 1)
                 i = 0;
             cout << "Please " << player[i] << " choose letter\n";
             char chu; // Từ dự đoán của người chơi
             cin >> chu;
             chu = toupper(chu);
 
-            for (int i = 0; i < length; i++){
+            for (int i = 0; i < length; i++)
+            {
                 if (chu == data[i])
                 {
                     dap_an[i] = chu;
                 }
             }
 
-            if (cnt[chu - 65] != 0){
+            if (cnt[chu - 65] != 0)
+            {
                 cout << "Have " << cnt[chu - 65] << " letter " << chu << "\n"; // in ra số lần xuất hiện của từ của ki tự nhập vào
                 in_tu(dap_an, length);
                 cout << player[i] << " have " << player_mang[i] << " heart\n"; // in ra số mạng còn lại
@@ -74,18 +89,35 @@ void play(string data, string player[], int player_mang[], int n)
     }
 }
 
-void inputQuestion(string file, string player[], int player_mang[], int n){
+void inputQuestion(string file, string player[], int player_mang[], int n)
+{
     fstream fin(file);
     string data;
-    while (!fin.eof())
+    vector<string> word(15);
+    //int i = -1;
+    int mang[15] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+    random(mang);
+    while (fin.is_open())
     {
-        int tim = 6;
-        getline(fin, data);
+        for (int i = 0; i < 15; i++){
+            getline(fin, word[i]);
+        }
+        fin.close();
+    }
+    for(int i = 0; i < 15; i++){
+        data = word[mang[i]];
         play(data, player, player_mang, n);
     }
+    // while (!fin.eof())
+    // {
+    //     // getline(fin,word[i++]);
+    //     getline(fin, data);
+    //     play(data, player, player_mang, n);
+    // }
 }
 
-void newGame(){
+void newGame()
+{
     // inputQuestion("BoCauHoi.txt");
     cout << "\n\tEnter the number of player: ";
     int n;
@@ -103,6 +135,5 @@ void newGame(){
         player_mang[i] = 6;
     }
     // Nhập số lượng người chơi , tên người chơi
-
     inputQuestion("BoCauHoi.txt", player, player_mang, n);
 }
