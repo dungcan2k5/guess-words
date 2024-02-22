@@ -55,7 +55,7 @@ void play(string data, string player[], int player_mang[], int n)
 
     cout << "\t\t\t\t\t\t\t\tNumber of words : " << so_luong << "\n\n"; // In ra số lượng chữ của từ
     in_tu(dap_an, length);
-    for (int i = 0; i < so_luong; i++)
+    for (int i = 0; i < so_luong - 1; i++)
         tu[i] = data[i];
 
     int cnt[27] = {0};
@@ -63,9 +63,9 @@ void play(string data, string player[], int player_mang[], int n)
         cnt[data[i] - 65]++; // Đếm số lượng các chữ cái xuất hiện của từ
     while (so_luong)
     {
-        for (int i = 0; i < so_luong + 1; i++)
+        for (int i = 0; i < n + 1; i++)
         {
-            if (i >= so_luong - 1)
+            if (i == n)
                 i = 0;
             // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
             // if (player_mang[i] == 0) i++;
@@ -89,11 +89,12 @@ void play(string data, string player[], int player_mang[], int n)
                 cout << player[i] << " have " << player_mang[i] << " heart\n"; // in ra số mạng còn lại
                 so_luong -= cnt[chu - 65];
             }
-            else
-            {
+            else{
                 player_mang[i]--;
                 cout << "Don't have " << chu << " letter.\n";
                 cout << player[i] << " have " << player_mang[i] << " heart\n\n"; // in ra số mạng còn lại
+                in_tu(dap_an, length);
+
             }
         }
     }
