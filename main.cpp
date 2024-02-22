@@ -25,7 +25,7 @@ void chooseMode()
         newGame();
         break;
     case '2':
-        print_text_file("Scoreboard.txt");
+        printTextFile("Scoreboard.txt");
         break;
     case '3':
         system("HuongDan.txt");
@@ -47,7 +47,7 @@ void chooseMode()
 int main()
 {
     configWindow();
-    print_text_file("Logo.txt");
+    printTextFile("Logo.txt");
     loadGame();
     mainMenu();
     while (true) chooseMode();

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void print_text_file(string path)
+void printTextFile(string path)
 {
     fstream file(path);
     string line;

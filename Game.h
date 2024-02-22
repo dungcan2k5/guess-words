@@ -61,42 +61,40 @@ void play(string data, string player[], int player_mang[], int n)
     int cnt[27] = {0};
     for (int i = 0; i < so_luong; i++)
         cnt[data[i] - 65]++; // Đếm số lượng các chữ cái xuất hiện của từ
+    
+    int index = 0;
     while (so_luong)
     {
-        for (int i = 0; i < n + 1; i++)
+        // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
+        // if (player_mang[i] == 0) i++;
+        cout << "Please " << player[index] << " choose letter\n";
+        char chu; // Từ dự đoán của người chơi
+        cin >> chu;
+        chu = toupper(chu);
+
+        for (int j = 0; j < length; j++)
         {
-            if (i == n)
-                i = 0;
-            // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
-            // if (player_mang[i] == 0) i++;
-            cout << "Please " << player[i] << " choose letter\n";
-            char chu; // Từ dự đoán của người chơi
-            cin >> chu;
-            chu = toupper(chu);
-
-            for (int i = 0; i < length; i++)
+            if (chu == data[j])
             {
-                if (chu == data[i])
-                {
-                    dap_an[i] = chu;
-                }
-            }
-
-            if (cnt[chu - 65] != 0)
-            {
-                cout << "Have " << cnt[chu - 65] << " letter " << chu << "\n"; // in ra số lần xuất hiện của từ của ki tự nhập vào
-                in_tu(dap_an, length);
-                cout << player[i] << " have " << player_mang[i] << " heart\n"; // in ra số mạng còn lại
-                so_luong -= cnt[chu - 65];
-            }
-            else{
-                player_mang[i]--;
-                cout << "Don't have " << chu << " letter.\n";
-                cout << player[i] << " have " << player_mang[i] << " heart\n\n"; // in ra số mạng còn lại
-                in_tu(dap_an, length);
-
+                dap_an[j] = chu;
             }
         }
+
+        if (cnt[chu - 65] != 0)
+        {
+            cout << "Have " << cnt[chu - 65] << " letter " << chu << "\n"; // in ra số lần xuất hiện của từ của ki tự nhập vào
+            in_tu(dap_an, length);
+            cout << player[index] << " have " << player_mang[index] << " heart\n"; // in ra số mạng còn lại
+            so_luong -= cnt[chu - 65];
+        }
+        else{
+            player_mang[index]--;
+            cout << "Don't have " << chu << " letter.\n";
+            cout << player[index] << " have " << player_mang[index] << " heart\n\n"; // in ra số mạng còn lại
+            in_tu(dap_an, length);
+            index++;
+        }
+        if (index == n) index = 0;
     }
 }
 
