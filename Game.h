@@ -6,6 +6,15 @@
 #include <map>
 #include <time.h>
 using namespace std;
+char bang_tu[26];
+void tạo_bang_tu(char x){
+    int j = 0;
+    for(char i = 'A'; i <= 'Z'; i++){
+        bang_tu[j] = i;
+        j++;
+    }
+}
+
 void random(int mang[])
 {
     srand((int)time(0));
@@ -50,6 +59,10 @@ void play(string data, string player[], int player_mang[], int n)
     for(int i = 0; i < n; i++){
         player_mang[i] = 6;
     }
+    bang_tu[26];
+    for(int i = 0; i < 26; i++){
+        bang_tu[i] = char(i + 65);
+    }
     // int number_player = player.lenght();
     for (int i = 0; i < so_luong; i++)
     {
@@ -68,6 +81,8 @@ void play(string data, string player[], int player_mang[], int n)
     int index = 0;
     while (so_luong)
     {
+        for(int i = 0 ; i < 26; i++) cout << bang_tu[i] << " ";
+        cout << "\n";
         // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
         // if (player_mang[i] == 0) i++;
         if(player_mang[index] <= 0) continue;
@@ -75,7 +90,7 @@ void play(string data, string player[], int player_mang[], int n)
         char chu; // Từ dự đoán của người chơi
         cin >> chu;
         chu = toupper(chu);
-
+        bang_tu[chu - 65] = '0';
         for (int j = 0; j < length; j++)
         {
             if (chu == data[j])
