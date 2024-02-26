@@ -47,6 +47,9 @@ void play(string data, string player[], int player_mang[], int n)
     int length = so_luong;
     char tu[so_luong];
     char dap_an[so_luong];
+    for(int i = 0; i < n; i++){
+        player_mang[i] = 6;
+    }
     // int number_player = player.lenght();
     for (int i = 0; i < so_luong; i++)
     {
@@ -67,6 +70,7 @@ void play(string data, string player[], int player_mang[], int n)
     {
         // if (i >= so_luong - 1 || player_mang[i] == 0) check_player_mang(i, player_mang, so_luong);
         // if (player_mang[i] == 0) i++;
+        if(player_mang[index] <= 0) continue;
         cout << "Please " << player[index] << " choose letter\n";
         char chu; // Từ dự đoán của người chơi
         cin >> chu;
@@ -143,7 +147,7 @@ void newGame()
         cin >> name;
         cout << "\n";
         player[i] = name;
-        player_mang[i] = 6;
+        //player_mang[i] = 6;
     }
     // Nhập số lượng người chơi , tên người chơi
     inputQuestion("BoCauHoi.txt", player, player_mang, n);
